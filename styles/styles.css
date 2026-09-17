@@ -1,0 +1,71 @@
+
+/* ------ Cuerpo ------ */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+}
+
+/* ------ HEADER Y NAV ------ */
+.site-header {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+/* ------ Sections ------ */
+.site-main {
+    padding: 20px;
+}
+
+.content-section, .content-article {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.section-text {
+    font-weight: 400;
+}
+.section-image {
+    max-width: 100%;
+    height: auto;
+}
+/* ------ FOOTER ------ */
+.site-footer {
+    background-color: #1f2937;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer-link {
+    color: #10b981;
+}
