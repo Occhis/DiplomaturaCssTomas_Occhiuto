@@ -24,11 +24,35 @@
     <main class="site-main">
         <section class="content-section">
             <h2 class="section-title">Ponte en Contacto</h2>
-            <p class="section-text">Si tenés alguna consulta o querés iniciar un nuevo proyecto web, podés escribirnos a través de nuestras vías de comunicación habituales.</p>
+            <p class="section-text">Si tenés alguna consulta o querés iniciar un nuevo proyecto web, completá el siguiente formulario y te responderemos a la brevedad.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@correo.com" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="presupuesto" class="form-label">Presupuesto estimado (USD):</label>
+                    <input type="number" id="presupuesto" name="presupuesto" min="50" max="5000" required placeholder="Ej. 300" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje" class="form-label">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Contanos sobre tu proyecto..." class="form-input"></textarea>
+                </div>
+
+                <button type="submit" class="form-button">Enviar Mensaje</button>
+            </form>
         </section>
     </main>
     <footer class="site-footer">
         <p>© 2026 - Tomas Ignacio Occhiuto | <a href="contacto.html" class="footer-link">Contáctanos</a></p>
     </footer>
 </body>
-</html> 
+</html>
