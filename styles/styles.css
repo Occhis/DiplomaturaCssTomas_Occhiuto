@@ -205,7 +205,7 @@ body {
     border: none;
     border-radius: 6px;
 }
-
+/* ------ 8. Footer ------ */
 .site-footer {
     background-color: #1f2937;
     color: #ffffff;
@@ -213,7 +213,7 @@ body {
     padding: 20px;
     margin-top: auto;
 }
-/* ------ 8. Footer ------ */
+
 .footer-link {
     color: #34d399;
     text-decoration: none;
