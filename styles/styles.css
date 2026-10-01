@@ -275,9 +275,15 @@ body {
 
 /* Breakpoint Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
-    .flex-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    .content-grid-hero {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "title image"
+            "text image";
+        gap: 40px;
+    }
+    .content-grid-media {
+        grid-template-columns: 1fr 1fr;
         gap: 30px;
     }
 }
