@@ -1,0 +1,120 @@
+/* ------ 1. Configuración global del Box Model ------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------ Cuerpo y Tipografía ------ */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+/* ------ 2. Implementación de Flexbox en Navbar ------ */
+.site-header {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.site-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #60a5fa;
+}
+
+/* ------ 3. Implementación de Flexbox en el Layout ------ */
+.site-main {
+    padding: 30px 20px;
+    flex: 1; 
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Contenedor flexible opcional para grillas de tarjetas/proyectos o servicios */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ------ 4. Aplicación del Box Model en Detalles ------ */
+.content-section, .content-article {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 280px; 
+}
+
+.section-title {
+    color: #1f2937;
+    font-weight: 700;
+    margin-bottom: 12px; 
+}
+
+.section-text {
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* ------ 5. FOOTER ------ */
+.site-footer {
+    background-color: #1f2937;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.footer-link {
+    color: #34d399;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}

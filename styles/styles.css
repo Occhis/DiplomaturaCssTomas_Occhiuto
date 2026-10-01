@@ -1,11 +1,12 @@
-/* ------ 1. Configuración global del Box Model ------ */
+/* ==========================================================
+   1. CONFIGURACIÓN GLOBAL & BOX MODEL
+   ================================================---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ------ Cuerpo y Tipografía ------ */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f4f6f8;
@@ -15,7 +16,9 @@ body {
     min-height: 100vh; 
 }
 
-/* ------ 2. Implementación de Flexbox en Navbar ------ */
+/* ==========================================================
+   2. NAVEGACIÓN & HEADER (Flexbox)
+   ================================================---------- */
 .site-header {
     background-color: #1f2937;
     color: #ffffff;
@@ -52,7 +55,9 @@ body {
     color: #60a5fa;
 }
 
-/* ------ 3. Implementación de Flexbox en el Layout ------ */
+/* ==========================================================
+   3. LAYOUT PRINCIPAL (Flexbox)
+   ================================================---------- */
 .site-main {
     padding: 30px 20px;
     flex: 1; 
@@ -63,14 +68,16 @@ body {
     flex-direction: column;
     gap: 25px;
 }
-/* Contenedor flexible opcional para grillas de tarjetas/proyectos o servicios */
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-/* ------ 4. Aplicación del Box Model en Detalles ------ */
+/* ==========================================================
+   4. COMPONENTES Y DETALLES DE SECCIONES
+   ================================================---------- */
 .content-section, .content-article {
     background-color: #ffffff;
     padding: 25px;
@@ -85,7 +92,6 @@ body {
     color: #1f2937;
     font-weight: 700;
     margin-bottom: 12px; 
-
 }
 
 .section-subtitle {
@@ -94,7 +100,6 @@ body {
     font-size: 18px;
     margin-top: 15px;
     margin-bottom: 10px;
-
 }
 
 .section-text {
@@ -110,8 +115,9 @@ body {
     margin-top: 10px;
 }
 
-
-/* ------ 5. Tablas de Datos (Preentrega 2) ------ */
+/* ==========================================================
+   5. TABLAS DE DATOS (Preentrega 2)
+   ================================================---------- */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -142,7 +148,9 @@ body {
     background-color: #f9fafb;
 }
 
-/* ------ 6. Formularios (Preentrega 2) ------ */
+/* ==========================================================
+   6. FORMULARIOS (Preentrega 2)
+   ================================================---------- */
 .form-group {
     margin-bottom: 15px;
 }
@@ -178,11 +186,15 @@ body {
     background-color: #374151;
 }
 
-/* ------ 7. Multimedia e Iframes (Preentrega 2) ------ */
+/* ==========================================================
+   7. MULTIMEDIA E IFRAMES (Preentrega 2 & 3)
+   ================================================---------- */
 .media-container-centered {
+    margin-top: 15px;
     margin-bottom: 25px;
     text-align: center;
 }
+
 .external-iframe-centered {
     width: 100%;
     max-width: 650px; 
@@ -205,7 +217,10 @@ body {
     border: none;
     border-radius: 6px;
 }
-/* ------ 8. Footer ------ */
+
+/* ==========================================================
+   8. FOOTER
+   ================================================---------- */
 .site-footer {
     background-color: #1f2937;
     color: #ffffff;
@@ -223,8 +238,11 @@ body {
     text-decoration: underline;
 }
 
-/* ------ 6. Grid y queries(preentrega 3) ------ */
+/* ==========================================================
+   9. CSS GRID & MEDIA QUERIES (Preentrega 3 - Mobile First)
+   ================================================---------- */
 
+/* Grilla Hero (Base Mobile: 1 columna) */
 .content-grid-hero {
     display: grid;
     grid-template-columns: 1fr;
@@ -248,49 +266,18 @@ body {
     grid-area: image;
 }
 
-
-.media-container-centered {
-    margin-top: 15px;
-}
-
-.section-subtitle {
-    font-size: 18px;
-    color: #1f2937;
-    margin-bottom: 8px;
-}
-
-.local-video,
-.external-iframe-centered {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-    border-radius: 6px;
-    border: none;
-}
-
-/* 3. Grilla para la Sección Multimedia (Mobile-First: 1 columna por defecto) */
+/* Grilla Multimedia (Base Mobile: 1 columna) */
 .content-grid-media {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
-
-/* ------ Breakpoint Desktop (min-width: 1024px) ------ */
+/* Breakpoint Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
-    /* Transformación de la grilla Hero a dos columnas */
-    .content-grid-hero {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "title image"
-            "text image";
-        gap: 40px;
-    }
-
-    /* Transformación de la sección Multimedia a 2 columnas para los videos */
-    .content-grid-media {
-        grid-template-columns: 1fr 1fr;
+    .flex-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
 }
