@@ -118,3 +118,38 @@ body {
 .footer-link:hover {
     text-decoration: underline;
 }
+/* ------ 6. Grid y queries ------ */
+
+.content-grid-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "title"
+        "text"
+        "image";
+    gap: 20px;
+    align-items: center;
+}
+
+.content-grid-hero .section-title {
+    grid-area: title;
+}
+
+.content-grid-hero .section-text {
+    grid-area: text;
+}
+
+.content-grid-hero .section-image {
+    grid-area: image;
+}
+
+/* ------ Breakpoint Desktop (min-width: 1024px) ------ */
+@media (min-width: 1024px) {
+    .content-grid-hero {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "title image"
+            "text image";
+        gap: 40px;
+    }
+}
