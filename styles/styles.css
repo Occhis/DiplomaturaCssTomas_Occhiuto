@@ -273,6 +273,13 @@ body {
     gap: 20px;
 }
 
+/* Grilla Servicios (Base Mobile: 1 columna) */
+.content-grid-services {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
 /* Breakpoint Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
     .content-grid-hero {
@@ -282,8 +289,14 @@ body {
             "text image";
         gap: 40px;
     }
+    
     .content-grid-media {
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .content-grid-services {
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
 }
