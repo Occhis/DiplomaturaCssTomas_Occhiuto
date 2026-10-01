@@ -222,7 +222,8 @@ body {
 .footer-link:hover {
     text-decoration: underline;
 }
-/* ------ 6. Grid y queries ------ */
+
+/* ------ 6. Grid y queries(preentrega 3) ------ */
 
 .content-grid-hero {
     display: grid;
@@ -247,13 +248,49 @@ body {
     grid-area: image;
 }
 
+
+.media-container-centered {
+    margin-top: 15px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.local-video,
+.external-iframe-centered {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 6px;
+    border: none;
+}
+
+/* 3. Grilla para la Sección Multimedia (Mobile-First: 1 columna por defecto) */
+.content-grid-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+
 /* ------ Breakpoint Desktop (min-width: 1024px) ------ */
 @media (min-width: 1024px) {
+    /* Transformación de la grilla Hero a dos columnas */
     .content-grid-hero {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
             "title image"
             "text image";
         gap: 40px;
+    }
+
+    /* Transformación de la sección Multimedia a 2 columnas para los videos */
+    .content-grid-media {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 }
