@@ -1,43 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - Occhiwebs</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Estilos Propios -->
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <header class="site-header">
-        <h1 class="site-title">Occhiwebs</h1>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="../index.html" class="nav-link">Inicio</a></li>
-                <li><a href="sobre-mi.html" class="nav-link">Sobre Mí</a></li>
-                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
-                <li><a href="servicios.html" class="nav-link">Servicios</a></li>
-                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-            </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand fw-bold text-white fs-3" href="../index.html">Occhiwebs</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre Mí</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="proyectos.html">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+
     <main class="site-main">
         <section class="content-section">
             <h2 class="section-title">Nuestros Proyectos</h2>
             <p class="section-text">Aquí podés ver algunos de los trabajos realizados en diseño web, maquetación y desarrollo de interfaces interactivas.</p>
         </section>
-        <article class="content-article">
-            <h3 class="section-title">Theo Remolques</h3>
-            <p class="section-text">Desarrollo de landing page y optimización de identidad visual para servicio de grúas.</p>
-        </article>
-        <article class="content-article">
-            <h3 class="section-title">Auxilio Los Mogni</h3>
-            <p class="section-text">Creación del sitio web y configuración de campañas digitales orientadas a conversión.</p>
-        </article>
+
+        <!-- Galería de Proyectos usando Cards y Grid de Bootstrap -->
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card h-100">
+                    <img src="../img/banner.jpg" class="card-img-top" alt="Proyecto Theo Remolques">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Theo Remolques</h5>
+                        <p class="card-text text-muted flex-grow-1">Desarrollo de landing page y optimización de identidad visual para servicio de grúas y auxilio mecánico.</p>
+                        <a href="contacto.html" class="custom-card-btn mt-3">Consultar Caso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card h-100">
+                    <img src="../img/equipo-trabajo.jpg" class="card-img-top" alt="Proyecto Auxilio Los Mogni">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Auxilio Los Mogni</h5>
+                        <p class="card-text text-muted flex-grow-1">Creación del sitio web, configuración de presencia en línea y optimización orientada a conversión.</p>
+                        <a href="contacto.html" class="custom-card-btn mt-3">Consultar Caso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="card custom-card h-100">
+                    <img src="../img/banner.jpg" class="card-img-top" alt="Proyecto Portal Corporativo">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Portal Corporativo</h5>
+                        <p class="card-text text-muted flex-grow-1">Maquetación modular con Flexbox y CSS Grid preparada para integración con APIs y catálogos dinámicos.</p>
+                        <a href="contacto.html" class="custom-card-btn mt-3">Consultar Caso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
     <footer class="site-footer">
         <p>© 2026 - Tomas Ignacio Occhiuto | <a href="contacto.html" class="footer-link">Contáctanos</a></p>
     </footer>
+
+    <!-- Bootstrap 5 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -17,46 +17,56 @@ body {
 }
 
 /* ==========================================================
-   2. NAVEGACIÓN & HEADER (Flexbox)
+   2. NAVBAR CUSTOMIZADO DE BOOTSTRAP
    ================================================---------- */
-.site-header {
+.custom-navbar {
     background-color: #1f2937;
-    color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.site-title {
-    font-size: 28px;
+.custom-navbar .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #60a5fa;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.custom-navbar .nav-link:focus {
+    color: #93c5fd;
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.custom-navbar .nav-link:active,
+.custom-navbar .nav-link.active {
+    color: #60a5fa !important;
     font-weight: 700;
 }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+
+.custom-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 10px;
 }
 
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.custom-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
 }
 
-.nav-link:hover {
-    color: #60a5fa;
+.custom-toggler .navbar-toggler-icon {
+    filter: invert(1);
 }
 
 /* ==========================================================
-   3. LAYOUT PRINCIPAL (Flexbox)
+   3. LAYOUT PRINCIPAL 
    ================================================---------- */
 .site-main {
     padding: 30px 20px;
@@ -69,14 +79,8 @@ body {
     gap: 25px;
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
 /* ==========================================================
-   4. COMPONENTES Y DETALLES DE SECCIONES
+   4. COMPONENTES Y TARJETAS
    ================================================---------- */
 .content-section, .content-article {
     background-color: #ffffff;
@@ -116,12 +120,130 @@ body {
 }
 
 /* ==========================================================
-   5. TABLAS DE DATOS (Preentrega 2)
+   5. COMPONENTE: CAROUSEL DE BOOTSTRAP
+   ================================================---------- */
+.custom-carousel {
+    max-width: 900px;
+    width: 100%;
+}
+
+.carousel-img {
+    height: 420px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(31, 41, 55, 0.75);
+    border-radius: 6px;
+    padding: 12px 20px;
+}
+
+/* ==========================================================
+   6. COMPONENTE: CARDS DE BOOTSTRAP
+   ================================================---------- */
+.custom-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background-color: #ffffff;
+}
+
+.custom-card-btn {
+    display: inline-block;
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #60a5fa;
+}
+
+.custom-card-btn:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.custom-card-btn:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.custom-card-btn:active {
+    transform: scale(0.97);
+    background-color: #111827;
+}
+
+/* ==========================================================
+   7. FORMULARIOS & ESTADOS INTERACTIVOS (Contacto)
+   ================================================---------- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+    outline: none;
+}
+
+.form-button {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.form-button:hover {
+    background-color: #374151;
+}
+
+.form-button:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.form-button:active {
+    transform: scale(0.98);
+    background-color: #111827;
+}
+
+/* ==========================================================
+   8. TABLAS DE DATOS
    ================================================---------- */
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: left;
 }
 
@@ -149,45 +271,7 @@ body {
 }
 
 /* ==========================================================
-   6. FORMULARIOS (Preentrega 2)
-   ================================================---------- */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 700;
-    color: #1f2937;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.form-button {
-    background-color: #1f2937;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s ease;
-}
-
-.form-button:hover {
-    background-color: #374151;
-}
-
-/* ==========================================================
-   7. MULTIMEDIA E IFRAMES (Preentrega 2 & 3)
+   9. MULTIMEDIA E IFRAMES
    ================================================---------- */
 .media-container-centered {
     margin-top: 15px;
@@ -211,15 +295,8 @@ body {
     max-height: 400px;
 }
 
-.external-iframe {
-    width: 100%;
-    height: 315px;
-    border: none;
-    border-radius: 6px;
-}
-
 /* ==========================================================
-   8. FOOTER
+   10. FOOTER & ENLACES
    ================================================---------- */
 .site-footer {
     background-color: #1f2937;
@@ -232,17 +309,18 @@ body {
 .footer-link {
     color: #34d399;
     text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-.footer-link:hover {
+.footer-link:hover,
+.footer-link:focus {
+    color: #6ee7b7;
     text-decoration: underline;
 }
 
 /* ==========================================================
-   9. CSS GRID & MEDIA QUERIES (Preentrega 3 - Mobile First)
+   11. CSS GRID & MEDIA QUERIES (Mobile First)
    ================================================---------- */
-
-/* Grilla Hero (Base Mobile: 1 columna) */
 .content-grid-hero {
     display: grid;
     grid-template-columns: 1fr;
@@ -254,33 +332,17 @@ body {
     align-items: center;
 }
 
-.content-grid-hero .section-title {
-    grid-area: title;
-}
+.content-grid-hero .section-title { grid-area: title; }
+.content-grid-hero .section-text { grid-area: text; }
+.content-grid-hero .section-image { grid-area: image; }
 
-.content-grid-hero .section-text {
-    grid-area: text;
-}
-
-.content-grid-hero .section-image {
-    grid-area: image;
-}
-
-/* Grilla Multimedia (Base Mobile: 1 columna) */
-.content-grid-media {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-/* Grilla Servicios (Base Mobile: 1 columna) */
+.content-grid-media,
 .content-grid-services {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
-/* Breakpoint Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
     .content-grid-hero {
         grid-template-columns: 1fr 1fr;

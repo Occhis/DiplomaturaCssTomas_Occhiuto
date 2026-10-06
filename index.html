@@ -2,33 +2,92 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Occhiwebs</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Estilos Propios -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header class="site-header">
-        <h1 class="site-title">Occhiwebs</h1>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="pages/sobre-mi.html" class="nav-link">Sobre Mí</a></li>
-                <li><a href="pages/proyectos.html" class="nav-link">Proyectos</a></li>
-                <li><a href="pages/servicios.html" class="nav-link">Servicios</a></li>
-                <li><a href="pages/contacto.html" class="nav-link">Contacto</a></li>
-            </ul>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand fw-bold text-white fs-3" href="index.html">Occhiwebs</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                    <ul class="navbar-nav gap-lg-2">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/sobre-mi.html">Sobre Mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/proyectos.html">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/servicios.html">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+
     <main class="site-main">
+        
         <section class="content-section content-grid-hero">
             <h2 class="section-title">Bienvenidos a nuestro sitio web</h2>
             <p class="section-text">Ofrecemos soluciones profesionales de diseño web y desarrollo de landing pages adaptadas a tus necesidades.</p>
             <img class="section-image" src="img/banner.jpg" alt="Banner principal que muestra un espacio de trabajo moderno con código en pantalla">
         </section>
 
-       <section class="content-section content-grid-media">
+        
+        <section class="content-section">
+            <h2 class="section-title text-center mb-3">Galería de Trabajos</h2>
+            <p class="section-text text-center mb-4">Un vistazo a nuestras interfaces visuales y flujos de trabajo recientes.</p>
+            
+            <div id="galleryCarousel" class="carousel slide custom-carousel mx-auto" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner rounded-3 shadow-sm">
+                    <div class="carousel-item active">
+                        <img src="img/banner.jpg" class="d-block w-100 carousel-img" alt="Diseño de interfaz principal">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Diseño Web Adaptativo</h5>
+                            <p>Estructuras pensadas para verse bien en cualquier dispositivo.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/equipo-trabajo.jpg" class="d-block w-100 carousel-img" alt="Desarrollo frontend en equipo">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Desarrollo Limpio</h5>
+                            <p>Código semántico, accesible y performante.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/banner.jpg" class="d-block w-100 carousel-img" alt="Soluciones visuales y branding">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Identidad Digital</h5>
+                            <p>Proyectos pensados de punta a punta para marcas y profesionales.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-label="Anterior"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-label="Siguiente"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Sección Multimedia -->
+        <section class="content-section content-grid-media">
             <h2 class="section-title">Presentación Multimedia</h2>
             <p class="section-text">Conocé más sobre nuestro proceso de trabajo a través de nuestro contenido multimedia externo e interno.</p>
             <div class="media-container-centered">
@@ -44,8 +103,12 @@
             </div>
         </section>
     </main>
+
     <footer class="site-footer">
         <p>© 2026 - Tomas Ignacio Occhiuto | <a href="pages/contacto.html" class="footer-link">Contáctanos</a></p>
     </footer>
+
+    <!-- Bootstrap 5 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
