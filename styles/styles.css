@@ -1,56 +1,128 @@
 /* ==========================================================
-   1. CONFIGURACIÓN GLOBAL & BOX MODEL
-   ================================================---------- */
+   ÍNDICE
+   1. Variables y configuración global
+   2. Navbar
+   3. Layout principal
+   4. Componentes y tarjetas
+   5. Carousel
+   6. Cards de proyectos
+   7. Botones
+   8. Formulario
+   9. Tabla
+   10. Multimedia
+   11. Footer
+   12. Grillas y media queries
+   13. Animaciones propias
+   14. Accesibilidad: prefers-reduced-motion
+   ========================================================== */
+
+/* ==========================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================================== */
+:root {
+    --color-primary: #1f2937;
+    --color-primary-hover: #374151;
+    --color-primary-dark: #111827;
+    --color-accent: #60a5fa;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-border: #e5e7eb;
+    --color-text: #333333;
+    --color-danger: #dc2626;
+    --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --radius: 8px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --animate-duration: 500ms;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f6f8;
-    color: #333333;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
+}
+
+.skip-link:focus {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 2000;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 /* ==========================================================
-   2. NAVBAR CUSTOMIZADO DE BOOTSTRAP
-   ================================================---------- */
+   2. NAVBAR
+   ========================================================== */
 .custom-navbar {
-    background-color: #1f2937;
-    padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.custom-navbar .navbar-brand {
+    letter-spacing: 0.02em;
 }
 
 .custom-navbar .nav-link {
+    position: relative;
     color: #ffffff;
     font-weight: 500;
     font-size: 1rem;
     padding: 8px 14px;
     border-radius: 4px;
-    transition: color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+    transition: color 250ms ease-out;
 }
 
-.custom-navbar .nav-link:hover {
-    color: #60a5fa;
-    background-color: rgba(255, 255, 255, 0.05);
+.custom-navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 2px;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 250ms ease-out;
 }
 
-.custom-navbar .nav-link:focus {
-    color: #93c5fd;
-    outline: 2px solid #60a5fa;
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus-visible {
+    color: var(--color-accent);
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link:focus-visible::after,
+.custom-navbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.custom-navbar .nav-link:focus-visible {
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
 
-.custom-navbar .nav-link:active,
 .custom-navbar .nav-link.active {
-    color: #60a5fa !important;
-    font-weight: 700;
+    color: var(--color-accent) !important;
 }
-
 
 .custom-toggler {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -66,69 +138,93 @@ body {
 }
 
 /* ==========================================================
-   3. LAYOUT PRINCIPAL 
-   ================================================---------- */
+   3. LAYOUT PRINCIPAL
+   ========================================================== */
 .site-main {
-    padding: 30px 20px;
-    flex: 1; 
+    padding: 28px 16px 40px;
+    flex: 1;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 28px;
 }
 
 /* ==========================================================
    4. COMPONENTES Y TARJETAS
-   ================================================---------- */
-.content-section, .content-article {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    flex: 1;
-    min-width: 280px; 
+   ========================================================== */
+.content-section,
+.content-article {
+    background-color: var(--color-surface);
+    padding: 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .section-title {
-    color: #1f2937;
+    color: var(--color-primary);
     font-weight: 700;
-    margin-bottom: 12px; 
+    font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem);
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 10px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+.section-title.text-center::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-article .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
 }
 
 .section-subtitle {
-    color: #1f2937;
+    color: var(--color-primary);
     font-weight: 700;
-    font-size: 18px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
 }
 
 .section-text {
     font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .section-image {
     max-width: 100%;
     height: auto;
-    border-radius: 6px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
     margin-top: 10px;
 }
 
+.hero-copy .section-text {
+    font-size: 1.05rem;
+}
+
 /* ==========================================================
-   5. COMPONENTE: CAROUSEL DE BOOTSTRAP
-   ================================================---------- */
+   5. CAROUSEL
+   ========================================================== */
 .custom-carousel {
     max-width: 900px;
     width: 100%;
 }
 
 .carousel-img {
-    height: 420px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -139,111 +235,129 @@ body {
 }
 
 /* ==========================================================
-   6. COMPONENTE: CARDS DE BOOTSTRAP
-   ================================================---------- */
+   6. CARDS DE PROYECTOS
+   ========================================================== */
 .custom-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    background-color: #ffffff;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: transform 400ms var(--ease-smooth), box-shadow 400ms var(--ease-smooth), border-color 400ms var(--ease-smooth);
 }
 
-.custom-card-btn {
-    display: inline-block;
-    background-color: #1f2937;
-    color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 4px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+.custom-card .card-img-top {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 600ms var(--ease-smooth);
 }
 
-.custom-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-color: #60a5fa;
-}
-
-.custom-card-btn:hover {
-    background-color: #374151;
-    color: #ffffff;
-}
-
-.custom-card-btn:focus {
-    outline: 2px solid #60a5fa;
-    outline-offset: 2px;
-}
-
-.custom-card-btn:active {
-    transform: scale(0.97);
-    background-color: #111827;
+.custom-card .card-title {
+    color: var(--color-primary);
 }
 
 /* ==========================================================
-   7. FORMULARIOS & ESTADOS INTERACTIVOS (Contacto)
-   ================================================---------- */
+   7. BOTONES
+   ========================================================== */
+.custom-btn,
+.form-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 300ms var(--ease-smooth), transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth);
+}
+
+.custom-btn:focus-visible,
+.form-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+@media (hover: hover) {
+    .project-item:hover .custom-card {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-accent);
+    }
+
+    .project-item:hover .custom-card .card-img-top {
+        transform: scale(1.04);
+    }
+
+    .custom-btn:hover,
+    .form-button:hover {
+        background-color: var(--color-primary-hover);
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.custom-btn:active,
+.form-button:active {
+    background-color: var(--color-primary-dark);
+    transform: translateY(0) scale(0.97);
+    box-shadow: none;
+}
+
+/* ==========================================================
+   8. FORMULARIO
+   ========================================================== */
+.contact-form {
+    max-width: 640px;
+}
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .form-label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--color-primary);
 }
 
 .form-input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    font-size: 1rem;
+    transition: border-color 250ms ease-out, box-shadow 250ms ease-out;
 }
 
 .form-input:focus {
-    border-color: #60a5fa;
+    border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
     outline: none;
 }
 
-.form-button {
-    background-color: #1f2937;
-    color: #ffffff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+.form-input:user-invalid {
+    border-color: var(--color-danger);
 }
 
-.form-button:hover {
-    background-color: #374151;
-}
-
-.form-button:focus {
-    outline: 2px solid #60a5fa;
-    outline-offset: 2px;
-}
-
-.form-button:active {
-    transform: scale(0.98);
-    background-color: #111827;
+textarea.form-input {
+    resize: vertical;
 }
 
 /* ==========================================================
-   8. TABLAS DE DATOS
-   ================================================---------- */
+   9. TABLA
+   ========================================================== */
 .data-table {
     width: 100%;
+    min-width: 520px;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 8px;
     text-align: left;
 }
 
@@ -251,91 +365,87 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     text-align: left;
-    color: #1f2937;
+    color: var(--color-primary);
 }
 
 .data-table th {
-    background-color: #1f2937;
+    background-color: var(--color-primary);
     color: #ffffff;
     padding: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-border);
 }
 
 .data-table td {
-    padding: 10px;
-    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
 }
 
-.data-table tr:nth-child(even) {
+.data-table tbody tr {
+    transition: background-color 250ms ease-out;
+}
+
+.data-table tbody tr:nth-child(even) {
     background-color: #f9fafb;
 }
 
+.data-table tbody tr:hover {
+    background-color: #eff6ff;
+}
+
 /* ==========================================================
-   9. MULTIMEDIA E IFRAMES
-   ================================================---------- */
+   10. MULTIMEDIA
+   ========================================================== */
 .media-container-centered {
-    margin-top: 15px;
-    margin-bottom: 25px;
-    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .external-iframe-centered {
+    display: block;
     width: 100%;
-    max-width: 650px; 
-    height: 365px;    
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
     border: none;
     border-radius: 6px;
-    display: block;
-    margin: 0 auto;  
 }
 
 .local-video {
+    display: block;
     width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000000;
     border-radius: 6px;
-    max-height: 400px;
 }
 
 /* ==========================================================
-   10. FOOTER & ENLACES
-   ================================================---------- */
+   11. FOOTER
+   ========================================================== */
 .site-footer {
-    background-color: #1f2937;
+    background-color: var(--color-primary);
     color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 16px;
     margin-top: auto;
+    font-size: 0.95rem;
 }
 
 .footer-link {
     color: #34d399;
     text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+    transition: color 200ms ease-out;
 }
 
 .footer-link:hover,
-.footer-link:focus {
+.footer-link:focus-visible {
     color: #6ee7b7;
     text-decoration: underline;
 }
 
 /* ==========================================================
-   11. CSS GRID & MEDIA QUERIES (Mobile First)
-   ================================================---------- */
-.content-grid-hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-        "title"
-        "text"
-        "image";
-    gap: 20px;
-    align-items: center;
-}
-
-.content-grid-hero .section-title { grid-area: title; }
-.content-grid-hero .section-text { grid-area: text; }
-.content-grid-hero .section-image { grid-area: image; }
-
+   12. GRILLAS Y MEDIA QUERIES
+   ========================================================== */
+.content-grid-hero,
 .content-grid-media,
 .content-grid-services {
     display: grid;
@@ -343,22 +453,107 @@ body {
     gap: 20px;
 }
 
-@media (min-width: 1024px) {
+.content-grid-hero {
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .site-main {
+        padding: 36px 24px 48px;
+    }
+
+    .content-section,
+    .content-article {
+        padding: 32px;
+    }
+
     .content-grid-hero {
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "title image"
-            "text image";
-        gap: 40px;
+        gap: 32px;
     }
-    
+
+    .content-grid-services {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .content-grid-services .content-article:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .carousel-img {
+        height: 320px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-grid-hero {
+        gap: 48px;
+    }
+
     .content-grid-media {
         grid-template-columns: 1fr 1fr;
         gap: 30px;
     }
 
+    .content-grid-media > .section-title,
+    .content-grid-media > .section-text {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+    }
+
     .content-grid-services {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+    }
+
+    .content-grid-services .content-article:last-child {
+        grid-column: auto;
+    }
+
+    .carousel-img {
+        height: 420px;
+    }
+}
+
+/* ==========================================================
+   13. ANIMACIONES PROPIAS
+   ========================================================== */
+@keyframes entradaSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    60% {
+        opacity: 0.9;
+        transform: translateY(-4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section {
+    animation: entradaSuave 500ms ease-out;
+}
+
+.content-section.hero {
+    animation: none;
+}
+
+/* ==========================================================
+   14. ACCESIBILIDAD: prefers-reduced-motion
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
     }
 }
