@@ -1,0 +1,7 @@
+@use "../utilities/variables" as *;
+
+header {
+  &.sticky-top {
+    z-index: 1020;
+  }
+}

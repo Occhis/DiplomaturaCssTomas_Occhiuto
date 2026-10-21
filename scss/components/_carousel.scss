@@ -1,0 +1,25 @@
+@use "../utilities/variables" as *;
+
+.custom-carousel {
+  max-width: 900px;
+  width: 100%;
+}
+
+.carousel-img {
+  height: 220px;
+  object-fit: cover;
+
+  @media (min-width: 768px) {
+    height: 320px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 420px;
+  }
+}
+
+.carousel-caption {
+  background: rgba(31, 41, 55, 0.75);
+  border-radius: 6px;
+  padding: 12px 20px;
+}

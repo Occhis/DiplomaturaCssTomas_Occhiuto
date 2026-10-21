@@ -1,0 +1,121 @@
+@use "../utilities/variables" as *;
+
+.content-section,
+.content-article {
+  background-color: $color-surface;
+  padding: 24px;
+  border-radius: $radius;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  animation: entradaSuave 500ms ease-out;
+
+  &.hero {
+    animation: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
+}
+
+.section-title {
+  color: $color-primary;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem);
+  line-height: 1.25;
+  margin-bottom: 16px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 10px;
+    background-color: $color-accent;
+    border-radius: 2px;
+  }
+
+  &.text-center::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.content-article .section-title {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: $color-primary;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.section-text {
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.section-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: $radius;
+  box-shadow: $shadow-sm;
+  margin-top: 10px;
+}
+
+.hero-copy .section-text {
+  font-size: 1.05rem;
+}
+
+.custom-card {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  overflow: hidden;
+  background-color: $color-surface;
+  box-shadow: $shadow-sm;
+  transition: transform 400ms $ease-smooth, box-shadow 400ms $ease-smooth, border-color 400ms $ease-smooth;
+
+  .card-img-top {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 600ms $ease-smooth;
+  }
+
+  .card-title {
+    color: $color-primary;
+  }
+}
+
+.project-item {
+  @media (hover: hover) {
+    &:hover {
+      .custom-card {
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
+        border-color: $color-accent;
+
+        .card-img-top {
+          transform: scale(1.04);
+        }
+      }
+    }
+  }
+}
+
+@keyframes entradaSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

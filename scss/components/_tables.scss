@@ -1,0 +1,42 @@
+@use "../utilities/variables" as *;
+
+.data-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  margin-top: 8px;
+  text-align: left;
+
+  th {
+    background-color: $color-primary;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid $color-border;
+  }
+
+  td {
+    padding: 10px 12px;
+    border: 1px solid $color-border;
+  }
+
+  tbody {
+    tr {
+      transition: background-color 250ms ease-out;
+
+      &:nth-child(even) {
+        background-color: #f9fafb;
+      }
+
+      &:hover {
+        background-color: #eff6ff;
+      }
+    }
+  }
+}
+
+.table-caption {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+  color: $color-primary;
+}

@@ -1,0 +1,69 @@
+@use "../utilities/variables" as *;
+
+.custom-navbar {
+  background-color: $color-primary;
+  padding: 12px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+  .navbar-brand {
+    letter-spacing: 0.02em;
+  }
+
+  .nav-link {
+    position: relative;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: color 250ms ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 2px;
+      height: 2px;
+      background-color: $color-accent;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 250ms ease-out;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-accent;
+      
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
+    }
+
+    &.active {
+      color: $color-accent !important;
+      
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.custom-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 10px;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
+  }
+
+  .navbar-toggler-icon {
+    filter: invert(1);
+  }
+}

@@ -1,0 +1,40 @@
+@use "../utilities/variables" as *;
+
+.contact-form {
+  max-width: 640px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: border-color 250ms ease-out, box-shadow 250ms ease-out;
+
+  &:focus {
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+    outline: none;
+  }
+
+  &:user-invalid {
+    border-color: $color-danger;
+  }
+
+  &textarea {
+    resize: vertical;
+  }
+}

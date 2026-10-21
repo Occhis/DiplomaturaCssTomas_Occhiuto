@@ -1,0 +1,24 @@
+@use "../utilities/variables" as *;
+
+.media-container-centered {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.external-iframe-centered {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: none;
+  border-radius: 6px;
+}
+
+.local-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  border-radius: 6px;
+}

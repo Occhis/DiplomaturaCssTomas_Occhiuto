@@ -1,0 +1,89 @@
+// 1. Utilities (Variables y Mixins)
+@use "utilities/variables";
+@use "utilities/mixins";
+
+// 2. Base
+@use "base/tipografia";
+@use "base/base";
+
+// 3. Layout
+@use "layout/header";
+@use "layout/nav";
+@use "layout/footer";
+
+// 4. Components
+@use "components/buttons";
+@use "components/cards";
+@use "components/forms";
+@use "components/tables";
+@use "components/carousel";
+@use "components/media";
+
+// 5. Grillas y Media Queries Globales / Accesibilidad
+.content-grid-hero,
+.content-grid-media,
+.content-grid-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.content-grid-hero {
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .content-grid-hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .content-grid-services {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    .content-article:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-grid-hero {
+    gap: 48px;
+  }
+
+  .content-grid-media {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    > .section-title,
+    > .section-text {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+    }
+  }
+
+  .content-grid-services {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    .content-article:last-child {
+      grid-column: auto;
+    }
+  }
+}
+
+// Accesibilidad: prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

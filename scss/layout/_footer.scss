@@ -1,0 +1,22 @@
+@use "../utilities/variables" as *;
+
+.site-footer {
+  background-color: $color-primary;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 16px;
+  margin-top: auto;
+  font-size: 0.95rem;
+
+  .footer-link {
+    color: #34d399;
+    text-decoration: none;
+    transition: color 200ms ease-out;
+
+    &:hover,
+    &:focus-visible {
+      color: #6ee7b7;
+      text-decoration: underline;
+    }
+  }
+}
