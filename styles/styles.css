@@ -127,12 +127,16 @@ header.sticky-top {
 
 .custom-btn,
 .form-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   display: inline-block;
   background-color: #1f2937;
   color: #ffffff;
   padding: 11px 22px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   text-align: center;
   font-family: "Montserrat", sans-serif;
@@ -292,7 +296,7 @@ header.sticky-top {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #cbd5e1;
-  border-radius: 4px;
+  border-radius: 8px;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   transition: border-color 250ms ease-out, box-shadow 250ms ease-out;
@@ -305,7 +309,8 @@ header.sticky-top {
 .form-input:user-invalid {
   border-color: #dc2626;
 }
-.form-inputtextarea {
+
+textarea.form-input {
   resize: vertical;
 }
 

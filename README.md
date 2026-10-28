@@ -1,19 +1,37 @@
 # DiplomaturaCoder
-# Sitio Web - Occhiwebs
+# Occhiwebs - Portafolio Profesional (Preentrega 6)
 
-Este repositorio contiene el desarrollo de un sitio web estático multipágina implementando HTML5 y CSS3, basado en los contenidos y la práctica de la diplomatura de desarrollo web de Coderhouse. 
+Este repositorio contiene el desarrollo de un sitio web estático multipágina implementando HTML5, Bootstrap 5 y una **arquitectura SCSS modular**, basado en los contenidos y la práctica de la diplomatura de desarrollo web. 
 
 ## Descripción del Proyecto
-El proyecto fue realizado integrando los conocimientos fundamentales adquiridos en la diplomatura (maquetación semántica, modelos de caja, selectores y organización modular) junto con conceptos y técnicas complementarias provenientes de la formación en React de Coderhouse. En esta etapa, el sitio integra el framework Bootstrap vía CDN para componentes dinámicos y navegación responsiva, junto con estados interactivos pulidos mediante CSS3.
+El proyecto fue realizado integrando los conocimientos fundamentales adquiridos en la diplomatura (maquetación semántica, modelos de caja y selectores) junto con técnicas avanzadas de organización de estilos. En esta etapa, el proyecto ha sido refactorizado por completo para migrar de CSS plano a un sistema profesional de partials y variables utilizando Sass (`@use`).
 
-## Preentrega 4: Integración de Bootstrap
-Para esta entrega se implementaron las siguientes actualizaciones:
-* **Vinculación CDN**: Se agregaron las hojas de estilo de Bootstrap en el `<head>` y los scripts JS antes del cierre de `</body>` en todos los archivos HTML.
-* **Navbar Responsivo**: Implementación del componente Navbar de Bootstrap con menú hamburguesa colapsable en los 5 archivos del proyecto (`index.html` y las 4 páginas dentro de `pages/`).
-* **Galería con Carousel**: Incorporación del componente Carousel en `index.html` para exhibir trabajos e interfaces de forma dinámica.
-* **Componentes en Página Secundaria**: Maquetación de la sección de proyectos (`pages/proyectos.html`) utilizando Cards y el sistema de grillas de Bootstrap.
-* **Estados Interactivos**: Aplicación de pseudoclases `:hover`, `:focus` y `:active` acompañadas de `transition` en enlaces, botones, inputs y tarjetas para lograr transiciones suaves en todo el sitio.
-* **Estilos Propios y Consistencia**: Personalización con CSS sobre los componentes de Bootstrap para preservar la tipografía Montserrat y la identidad visual de Occhiwebs.
+---
+
+## 📂 Estructura de Arquitectura SCSS
+
+El código de estilos se organiza bajo una estructura limpia y modular dentro del directorio `scss/`:
+
+```text
+scss/
+├── main.scss              # Archivo maestro (único punto de entrada con directivas @use)
+├── utilities/
+│   ├── _variables.scss    # Variables globales (colores, fuentes, radios, sombras y focus)
+│   └── _mixins.scss       # Mixins reutilizables (ej. flex-center)
+├── base/
+│   ├── _tipografia.scss   # Estilos base y tipográficos globales
+│   └── _base.scss         # Estilos globales de etiquetas y accesibilidad
+├── layout/
+│   ├── _header.scss       # Estilos de la cabecera
+│   ├── _nav.scss          # Barra de navegación principal y toggler
+│   └── _footer.scss       # Pie de página
+└── components/
+    ├── _buttons.scss      # Botones personalizados con mixins de centrado
+    ├── _cards.scss        # Tarjetas y contenedores de sección
+    ├── _forms.scss        # Formularios, inputs y selectores específicos
+    ├── _tables.scss       # Tablas de servicios y precios
+    ├── _carousel.scss     # Carrusel adaptativo
+    └── _media.scss        # Contenedores multimedia (video e iframe)
 
 ## Tecnologías Utilizadas
 * **HTML5**: Estructura semántica de las páginas (`header`, `nav`, `main`, `section`, `article`, `footer`).

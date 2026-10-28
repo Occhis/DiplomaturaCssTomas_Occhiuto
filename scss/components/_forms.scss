@@ -19,22 +19,21 @@
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #cbd5e1;
-  border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
+  border-radius: $radius;
+  font-family: $font-family-base;
   font-size: 1rem;
   transition: border-color 250ms ease-out, box-shadow 250ms ease-out;
 
   &:focus {
     border-color: $color-accent;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 0 3px $color-focus-shadow;
     outline: none;
   }
 
   &:user-invalid {
     border-color: $color-danger;
   }
-
-  &textarea {
-    resize: vertical;
-  }
+}
+textarea.form-input {
+  resize: vertical;
 }

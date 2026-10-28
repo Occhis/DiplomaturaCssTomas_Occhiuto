@@ -1,16 +1,18 @@
 @use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
 
 .custom-btn,
 .form-button {
+  @include flex-center($justify: center,$align: center);
   display: inline-block;
   background-color: $color-primary;
-  color: #ffffff;
+  color: $color-surface;
   padding: 11px 22px;
   border: none;
-  border-radius: 4px;
+  border-radius: $radius;
   text-decoration: none;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-family-base;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 300ms $ease-smooth, transform 300ms $ease-smooth, box-shadow 300ms $ease-smooth;
@@ -23,7 +25,7 @@
   @media (hover: hover) {
     &:hover {
       background-color: $color-primary-hover;
-      color: #ffffff;
+      color: $color-surface;
       transform: translateY(-1px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
